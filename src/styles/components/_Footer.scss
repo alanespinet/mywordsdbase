@@ -1,0 +1,16 @@
+.footer {
+  height: 50px;
+  background-color: $blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    color: #fff;
+    font-weight: 300;
+  }
+
+  a {
+    color: gold;
+  }
+}

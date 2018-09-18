@@ -1,0 +1,13 @@
+.word-description {
+  flex-basis: calc(100% - 350px);
+  padding-left: 50px;
+  box-sizing: border-box;
+
+  &__wrapper {
+    height: 375px;
+    border: 1px solid rgba( #2f2f2f, .1 );
+    box-sizing: border-box;
+    padding: 15px;
+    margin-bottom: 10px;
+  }
+}

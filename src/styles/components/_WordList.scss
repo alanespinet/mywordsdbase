@@ -1,0 +1,13 @@
+.word-list {
+  flex-basis: 350px;
+
+  &__list-wrapper {
+    background-color: rgba( #2f2f2f, .05 );
+    overflow-y: scroll;
+    height: 370px;
+
+    p {
+      padding: 10px;
+    }
+  }
+}

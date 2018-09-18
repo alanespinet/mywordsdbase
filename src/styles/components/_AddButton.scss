@@ -1,0 +1,20 @@
+.add-button {
+  height: 40px;
+  width: 200px;
+  background-color: #34a38c;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: #fff !important;
+  text-decoration: none !important;
+  transition: all .3s ease;
+  margin-left: auto;
+
+  &:hover {
+    background-color: darken(#34a38c, 10%);
+  }
+}

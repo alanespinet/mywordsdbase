@@ -1,0 +1,14 @@
+.word {
+  p {
+    transition: all .3s ease;
+  }
+
+  p.active {
+    background-color: rgba($blue, .2);
+  }
+
+  p:hover {
+    background-color: rgba($blue, .2);
+    cursor: pointer;
+  }
+}
