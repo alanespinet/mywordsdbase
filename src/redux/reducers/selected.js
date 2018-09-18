@@ -1,6 +1,6 @@
 const defaultState = {
-  word: 'word selected',
-  definition: 'description selected'
+  word: '',
+  definition: ''
 };
 
 export default (state = defaultState, action) => {
@@ -9,6 +9,9 @@ export default (state = defaultState, action) => {
       return {
         ...action.payload
       }
+
+    case 'RESET_SELECTED':
+      return defaultState;
 
     default:
       return state;
