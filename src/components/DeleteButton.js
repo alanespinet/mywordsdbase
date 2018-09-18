@@ -5,14 +5,17 @@ import { deleteWord, resetSelected } from '../redux/actions';
 class DeleteButton extends Component {
   onHandleDelete = e => {
     e.preventDefault();
-    const word_d = this.props.selected.word;
-    this.props.onDeleteWord(word_d);
-    this.props.onResetSelected();
+
+    if(!!this.props.selected.word){
+      const word_d = this.props.selected.word;
+      this.props.onDeleteWord(word_d);
+      this.props.onResetSelected();
+    }
   }
 
   render(){
     return (
-      <a className="delete-button" href="#" onClick={this.onHandleDelete}>Delete Word</a>
+      <a className={`delete-button ${!!this.props.selected.word ? '' : 'disabled'}`} href="#" onClick={this.onHandleDelete}>Delete Word</a>
     );
   }
 }

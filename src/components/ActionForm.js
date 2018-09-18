@@ -15,13 +15,17 @@ class ActionForm extends Component {
     const word = document.getElementById('action-form__word-input').value;
     const definition = document.getElementById('action-form__definition-input').value;
 
-    const word_a = {
-      word,
-      definition
-    }
+    if(!!word.trim() && !!definition.trim()){
+      const word_a = {
+        word,
+        definition
+      }
 
-    this.props.onAddWord(word_a);
-    history.push('/');
+      this.props.onAddWord(word_a);
+      history.push('/');
+    } else {
+      alert('BOTH Word and Definition must to be present');
+    }
   }
 
   render(){

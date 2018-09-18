@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { history } from './App';
-import { editWord } from '../redux/actions/index';
+import { editWord, resetSelected } from '../redux/actions/index';
 
 class ActionFormEdit extends Component {
 
@@ -13,14 +13,33 @@ class ActionFormEdit extends Component {
   onEditClick = e => {
     e.preventDefault();
 
-    history.push('/');
+    const word = document.getElementById('action-form__word-input').value;
+    const definition = document.getElementById('action-form__definition-input').value;
+
+    if(!!word.trim() && !!definition.trim()){
+      const word_e = {
+        word,
+        definition
+      }
+
+      this.props.onEditWord(this.props.selected.word, word_e);
+      this.props.onResetSelected();
+      history.push('/');
+    } else {
+      alert('BOTH Word and Definition must to be present');
+    }
+  }
+
+  componentDidMount(){
+    document.getElementById('action-form__word-input').value = this.props.selected.word;
+    document.getElementById('action-form__definition-input').value = this.props.selected.definition;
   }
 
   render(){
     return (
       <div className="action-form">
-        <input type="text" placeholder="Word" value={this.props.selected.word} />
-        <textarea placeholder="Definition" value={this.props.selected.definition}></textarea>
+        <input type="text" placeholder="Word" id="action-form__word-input" />
+        <textarea placeholder="Definition" id="action-form__definition-input"></textarea>
 
         <div className="action-form__button-wrapper">
           <a href="#" className="action-form__cancel" onClick={this.onCancelClick}>Cancel</a>
@@ -36,7 +55,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onEditWord: (word, new_word) => dispatch( editWord(word, new_word) )
+  onEditWord: (word, new_word) => dispatch( editWord(word, new_word) ),
+  onResetSelected: () => dispatch( resetSelected() )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ActionFormEdit);
