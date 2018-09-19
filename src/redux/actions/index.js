@@ -16,7 +16,7 @@ export const resetSelected = selected => ({
 
 export const startSetWords = () => {
   return dispatch => {
-    return axios.get('http://localhost:8080/getallwords')
+    return axios.get('https://mywordsdbase.herokuapp.com/getallwords')
       .then( response => {
         dispatch( setWords(response.data) )
       });
@@ -30,7 +30,7 @@ export const setWords = words => ({
 
 export const startDeleteWord = word => {
   return dispatch => {
-    return axios.post('http://localhost:8080/deleteword', { word: word })
+    return axios.post('https://mywordsdbase.herokuapp.com/deleteword', { word: word })
       .then( () => dispatch( deleteWord(word) ) )
       .catch( err => console.log(err) );
   }
@@ -43,7 +43,7 @@ export const deleteWord = word => ({
 
 export const startAddWord = p_word => {
   return dispatch => {
-    return axios.post('http://localhost:8080/addword', {
+    return axios.post('https://mywordsdbase.herokuapp.com/addword', {
       word: p_word.word,
       definition: p_word.definition
     })
@@ -59,7 +59,7 @@ export const addWord = word => ({
 
 export const startEditWord = (p_word, p_new_word) => {
   return dispatch => {
-    return axios.post('http://localhost:8080/editword', {
+    return axios.post('https://mywordsdbase.herokuapp.com/editword', {
       word: p_word,
       new_word: p_new_word.word,
       new_definition: p_new_word.definition
