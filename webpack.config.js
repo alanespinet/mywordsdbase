@@ -31,6 +31,9 @@ module.exports = (env) => {
       contentBase: path.join(__dirname, 'public'),
       historyApiFallback: true
     },
+    "engines": {
+      "node": "9.4.0"
+    },
     plugins: [
       CSSExtract
     ]
