@@ -9,5 +9,14 @@
     box-sizing: border-box;
     padding: 15px;
     margin-bottom: 10px;
+
+    @include ipad {
+      height: 255px;
+    }
+  }
+
+  @include ipad {
+    flex-basis: 100%;
+    padding-left: 0;
   }
 }

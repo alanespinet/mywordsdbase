@@ -17,4 +17,12 @@
   &:hover {
     background-color: darken(#34a38c, 10%);
   }
+
+  @include ds-small {
+    width: 170px;
+  }
+
+  @include phone {
+    width: 100%;
+  }
 }

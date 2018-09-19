@@ -8,6 +8,11 @@
   p {
     color: #fff;
     font-weight: 300;
+
+    @include phone {
+      text-align: center;
+      font-size: 1.4rem;
+    }
   }
 
   a {

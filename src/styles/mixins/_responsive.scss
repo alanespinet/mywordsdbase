@@ -1,0 +1,17 @@
+@mixin ds-small {
+  @media( max-width: 1199px ){
+    @content;
+  }
+}
+
+@mixin ipad {
+  @media( max-width: 991px ){
+    @content;
+  }
+}
+
+@mixin phone {
+  @media( max-width: 767px ){
+    @content;
+  }
+}

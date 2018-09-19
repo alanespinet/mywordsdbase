@@ -5,9 +5,19 @@
     background-color: rgba( #2f2f2f, .05 );
     overflow-y: scroll;
     height: 370px;
+    border: 1px solid rgba(47, 47, 47, 0.1);
+    border-right: none;
 
     p {
       padding: 10px;
     }
+
+    @include ipad {
+      height: 205px;
+    }
+  }
+
+  @include ipad {
+    flex-basis: 100%;
   }
 }

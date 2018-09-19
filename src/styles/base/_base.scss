@@ -14,10 +14,18 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 6rem;
+
+  @include phone {
+    font-size: 4rem;
+  }
 }
 
 h2 {
   font-size: 3rem;
+
+  @include phone {
+    font-size: 2.4rem;
+  }
 }
 
 h3 {
@@ -74,6 +82,11 @@ a.disabled:hover {
 .page {
   min-height: calc(100vh - 250px);
   padding: 60px 0 100px;
+
+  @include phone {
+    padding: 10px 0 40px;
+    min-height: calc(100vh - 200px);
+  }
 }
 
 .container {
