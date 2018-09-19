@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('./mongoose/mongoose');
 const path = require('path');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const WordReg = require('./mongoose/models/WordReg');
 
@@ -15,6 +16,7 @@ app.use( bodyParser.urlencoded({
 }) );
 
 app.use( bodyParser.json() );
+app.use( cors() );
 app.use( express.static(publicPath) );
 
 // REQUESTS
