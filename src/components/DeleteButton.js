@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { deleteWord, resetSelected } from '../redux/actions';
+import { startDeleteWord, resetSelected } from '../redux/actions';
 
 class DeleteButton extends Component {
   onHandleDelete = e => {
@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onDeleteWord: w => dispatch( deleteWord(w) ),
+  onDeleteWord: w => dispatch( startDeleteWord(w) ),
   onResetSelected: () => dispatch( resetSelected() )
 });
 

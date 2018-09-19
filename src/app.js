@@ -11,7 +11,10 @@ import EditPage from './components/EditPage';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+import { startSetWords } from './redux/actions';
+
 import './styles/styles.scss';
+let hasRenderData = false;
 
 const jsx = (
   <Provider store={store}>
@@ -29,4 +32,22 @@ const jsx = (
   </Provider>
 );
 
-ReactDOM.render( jsx, document.getElementById('app') );
+const loadingJSX = (
+  <div className="loading-page">
+    <div className="loading-page__wrapper">
+      <h1>Words DBase</h1>
+      <img src="/images/loading.gif" alt="" />
+      <p>Loading data... please wait</p>
+    </div>
+  </div>
+);
+
+ReactDOM.render( loadingJSX, document.getElementById('app') );
+
+if( !hasRenderData ){
+  store.dispatch( startSetWords() )
+    .then( () => {
+      hasRenderData = true;
+      ReactDOM.render( jsx, document.getElementById('app') );
+    } );
+}

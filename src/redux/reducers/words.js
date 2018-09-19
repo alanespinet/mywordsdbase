@@ -1,24 +1,10 @@
-const defaultState = [
-  {
-    word: 'alan word 1',
-    definition: 'definition 1'
-  }, {
-    word: 'word alan 2',
-    definition: 'definition 2'
-  }, {
-    word: 'alan word 3',
-    definition: 'definition 3'
-  }, {
-    word: 'word 4 alan',
-    definition: 'definition 4'
-  }, {
-    word: 'word 5',
-    definition: 'definition 5'
-  }
-];
+const defaultState = [];
 
 export default ( state = defaultState, action ) => {
   switch( action.type ){
+    case 'SET_WORDS':
+      return action.payload;
+
     case 'DELETE_WORD':
       return state.filter( w => w.word !== action.payload );
 

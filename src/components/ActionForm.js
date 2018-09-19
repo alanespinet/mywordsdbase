@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { history } from './App';
-import { addWord } from '../redux/actions/index';
+import { startAddWord } from '../redux/actions/index';
 
 class ActionForm extends Component {
 
@@ -28,6 +28,10 @@ class ActionForm extends Component {
     }
   }
 
+  componentDidMount(){
+    document.getElementById('action-form__word-input').autofocus = true;
+  }
+
   render(){
     return (
       <div className="action-form">
@@ -44,7 +48,7 @@ class ActionForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onAddWord: word => dispatch( addWord(word) )
+  onAddWord: word => dispatch( startAddWord(word) )
 });
 
 export default connect(null, mapDispatchToProps)(ActionForm);

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { history } from './App';
-import { editWord, resetSelected } from '../redux/actions/index';
+import { startEditWord, resetSelected } from '../redux/actions/index';
 
 class ActionFormEdit extends Component {
 
@@ -33,6 +33,7 @@ class ActionFormEdit extends Component {
   componentDidMount(){
     document.getElementById('action-form__word-input').value = this.props.selected.word;
     document.getElementById('action-form__definition-input').value = this.props.selected.definition;
+    document.getElementById('action-form__word-input').autofocus = true;
   }
 
   render(){
@@ -55,7 +56,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  onEditWord: (word, new_word) => dispatch( editWord(word, new_word) ),
+  onEditWord: (word, new_word) => dispatch( startEditWord(word, new_word) ),
   onResetSelected: () => dispatch( resetSelected() )
 });
 
